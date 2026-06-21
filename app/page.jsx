@@ -3,15 +3,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { MessageCircle, Heart, Leaf, ChevronLeft, ChevronRight, Search, X } from 'lucide-react';
 import Head from 'next/head';
+import Link from 'next/link';
+import { getAllProducts } from './productsData';
 
 const ThreadsByMaa = () => {
   const [hoveredProduct, setHoveredProduct] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
-  const scrollRefs = useRef({});
+  const shopByCategoryRef = useRef(null);
 
-  // Rotating quotes
   const quotes = [
     '100% Handmade just for you',
     'Made with care, meant for you',
@@ -21,7 +22,6 @@ const ThreadsByMaa = () => {
     'Extra Discounts on orders above ₹1299/-',
   ];
 
-  // Auto-rotate quotes every 5 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentQuoteIndex((prev) => (prev + 1) % quotes.length);
@@ -29,64 +29,30 @@ const ThreadsByMaa = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // Analytics tracking function
-  const trackEvent = (eventType, productName) => {
-    const timestamp = new Date().toLocaleString();
-    const eventData = {
-      type: eventType,
-      product: productName,
-      timestamp: timestamp,
-      userAgent: navigator.userAgent.substring(0, 50),
-    };
+  const allProducts = getAllProducts();
 
-    // Log to console (you can later integrate with Google Analytics or Sheets)
-    console.log('📊 Event Tracked:', eventData);
-
-    // Store in localStorage for reference
-    const events = JSON.parse(localStorage.getItem('threadsByMaaEvents') || '[]');
-    events.push(eventData);
-    localStorage.setItem('threadsByMaaEvents', JSON.stringify(events));
-
-    // For now, log to console - we'll set up proper tracking next
-    window.gtag?.('event', eventType, { product_name: productName });
-  };
-
-  // Products organized by category
-  const productsByCategory = {
-    'Flowers': [
-      { id: 1, name: 'Rose Garden Bouquet', price: '₹599', image: '🌹', category: 'Flowers', color: 'Red, Pink, Coral', images: ['🌹', '🌹', '🌹'], description: 'Lorem ipsum dolor sit amet', tat: '2-3 days', care: 'Keep in cool place' },
-      { id: 2, name: 'Sunflower Delight', price: '₹649', image: '🌻', category: 'Flowers', color: 'Yellow, Gold', images: ['🌻', '🌻', '🌻'], description: 'Lorem ipsum dolor sit amet', tat: '2-3 days', care: 'Keep in cool place' },
-      { id: 3, name: 'Daisy Mix', price: '₹549', image: '🌼', category: 'Flowers', color: 'White, Yellow', images: ['🌼', '🌼', '🌼'], description: 'Lorem ipsum dolor sit amet', tat: '2-3 days', care: 'Keep in cool place' },
-      { id: 4, name: 'Lavender Dreams', price: '₹599', image: '💜', category: 'Flowers', color: 'Purple, Lavender', images: ['💜', '💜', '💜'], description: 'Lorem ipsum dolor sit amet', tat: '2-3 days', care: 'Keep in cool place' },
-    ],
-    'Bouquet': [
-      { id: 5, name: 'Premium Mixed Bouquet', price: '₹899', image: '💐', category: 'Bouquet', color: 'Multi-color', images: ['💐', '💐', '💐'], description: 'Lorem ipsum dolor sit amet', tat: '3-4 days', care: 'Keep in cool place' },
-      { id: 6, name: 'Romantic Red Bouquet', price: '₹999', image: '🌹', category: 'Bouquet', color: 'Red', images: ['🌹', '🌹', '🌹'], description: 'Lorem ipsum dolor sit amet', tat: '3-4 days', care: 'Keep in cool place' },
-      { id: 7, name: 'Pastel Dream Bouquet', price: '₹849', image: '🌸', category: 'Bouquet', color: 'Pastel mix', images: ['🌸', '🌸', '🌸'], description: 'Lorem ipsum dolor sit amet', tat: '3-4 days', care: 'Keep in cool place' },
-    ],
-    'Accessories': [
-      { id: 8, name: 'Crochet Hair Clips', price: '₹149', image: '✨', category: 'Accessories', color: 'Multi-color', images: ['✨', '✨', '✨'], description: 'Lorem ipsum dolor sit amet', tat: '1-2 days', care: 'Handle with care' },
-      { id: 9, name: 'Floral Bookmarks', price: '₹99', image: '📖', category: 'Accessories', color: 'Assorted', images: ['📖', '📖', '📖'], description: 'Lorem ipsum dolor sit amet', tat: '1-2 days', care: 'Handle with care' },
-      { id: 10, name: 'Cute Phone Charms', price: '₹199', image: '🔗', category: 'Accessories', color: 'Various', images: ['🔗', '🔗', '🔗'], description: 'Lorem ipsum dolor sit amet', tat: '1-2 days', care: 'Handle with care' },
-    ],
-    'Home Decor': [
-      { id: 11, name: 'Decorative Coasters', price: '₹299', image: '🏠', category: 'Home Decor', color: 'Multi-color', images: ['🏠', '🏠', '🏠'], description: 'Lorem ipsum dolor sit amet', tat: '2-3 days', care: 'Dust gently' },
-      { id: 12, name: 'Wall Hangings', price: '₹499', image: '🎨', category: 'Home Decor', color: 'Customizable', images: ['🎨', '🎨', '🎨'], description: 'Lorem ipsum dolor sit amet', tat: '3-4 days', care: 'Handle carefully' },
-    ],
-    'Raksha Bandhan 2026': [
-      { id: 13, name: 'Traditional Rakhi Set', price: '₹299', image: '🎀', category: 'Raksha Bandhan 2026', color: 'Gold, Silver, Multi', images: ['🎀', '🎀', '🎀'], description: 'Limited edition handmade rakhis', tat: '2-3 days', care: 'Handle with care' },
-      { id: 14, name: 'Designer Rakhi Pack', price: '₹499', image: '👑', category: 'Raksha Bandhan 2026', color: 'Premium', images: ['👑', '👑', '👑'], description: 'Premium collection for special bond', tat: '2-3 days', care: 'Handle with care' },
-      { id: 15, name: 'Rakhi with Gift Box', price: '₹399', image: '🎁', category: 'Raksha Bandhan 2026', color: 'Assorted', images: ['🎁', '🎁', '🎁'], description: 'Rakhi with special gift packaging', tat: '2-3 days', care: 'Handle with care' },
-    ],
-  };
-
-  const allProducts = Object.values(productsByCategory).flat();
-  const filteredProducts = allProducts.filter((p) =>
+  const filteredProducts = searchQuery.trim() ? allProducts.filter((p) =>
     p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    p.category.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+    p.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    p.subcategory.toLowerCase().includes(searchQuery.toLowerCase())
+  ) : [];
+
+  const categoryLinks = [
+    { name: 'Flowers & Bouquets', icon: '🌸', color: 'from-pink-100 to-rose-100', slug: 'flowers-bouquets' },
+    { name: 'Accessories', icon: '✨', color: 'from-purple-100 to-pink-100', slug: 'accessories' },
+    { name: 'Home Decor', icon: '🏠', color: 'from-amber-100 to-yellow-100', slug: 'home-decor' },
+    { name: 'Raksha Bandhan 2026', icon: '🎊', color: 'from-orange-100 to-red-100', slug: 'raksha-bandhan-2026' },
+  ];
+
+  const trackEvent = (eventType, productName) => {
+    console.log('📊 Event:', eventType, productName);
+  };
 
   const whatsappNumber = '6386188825';
+
+  const scrollToShopByCategory = () => {
+    shopByCategoryRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   const handleWhatsAppClick = (product) => {
     trackEvent('WhatsApp_Click', product.name);
@@ -105,23 +71,6 @@ Can you tell me more about customization options and delivery time?`;
     setSelectedProduct(product);
   };
 
-  const handleOrderClick = (product) => {
-    trackEvent('Order_Click', product.name);
-    handleWhatsAppClick(product);
-  };
-
-  const scroll = (categoryKey, direction) => {
-    const ref = scrollRefs.current[categoryKey];
-    if (ref) {
-      const scrollAmount = 300;
-      if (direction === 'left') {
-        ref.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-      } else {
-        ref.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-      }
-    }
-  };
-
   const handleQuickInquiry = () => {
     trackEvent('Quick_Inquiry', 'General');
     const message = `Hi! I'd like to know more about your products and custom crochet options.`;
@@ -133,8 +82,7 @@ Can you tell me more about customization options and delivery time?`;
     <>
       <Head>
         <title>Threads By Maa | Artisanal Handmade Crochet | Premium Gifts</title>
-        <meta name="description" content="Handmade crochet flowers, bouquets, and premium gifts by Threads By Maa. Customizable, artisanal quality from New Delhi." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Handmade crochet flowers, bouquets, and premium gifts by Threads By Maa." />
       </Head>
 
       <div className="min-h-screen bg-gradient-to-br from-yellow-50 via-amber-50 to-orange-50">
@@ -160,13 +108,13 @@ Can you tell me more about customization options and delivery time?`;
         {/* Navigation */}
         <nav className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-amber-100 shadow-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-            <div className="flex justify-between items-center gap-4">
+            <div className="flex justify-between items-center gap-4 mb-3">
               <div className="flex items-center gap-2">
                 <Leaf className="w-6 h-6 text-amber-600" />
                 <h1 className="text-2xl font-bold text-amber-900">Threads By Maa</h1>
               </div>
 
-              {/* Search Bar */}
+              {/* Desktop Search */}
               <div className="hidden md:flex flex-1 max-w-md mx-4">
                 <div className="relative w-full">
                   <Search className="absolute left-3 top-3 w-5 h-5 text-amber-600" />
@@ -190,7 +138,7 @@ Can you tell me more about customization options and delivery time?`;
             </div>
 
             {/* Mobile Search */}
-            <div className="md:hidden mt-3">
+            <div className="md:hidden">
               <div className="relative w-full">
                 <Search className="absolute left-3 top-3 w-5 h-5 text-amber-600" />
                 <input
@@ -228,7 +176,10 @@ Can you tell me more about customization options and delivery time?`;
                     <MessageCircle className="w-5 h-5" />
                     Order on WhatsApp
                   </button>
-                  <button className="border-2 border-amber-600 text-amber-600 hover:bg-amber-50 px-8 py-4 rounded-lg font-semibold transition-all duration-200">
+                  <button
+                    onClick={scrollToShopByCategory}
+                    className="border-2 border-amber-600 text-amber-600 hover:bg-amber-50 px-8 py-4 rounded-lg font-semibold transition-all duration-200"
+                  >
                     Explore Products
                   </button>
                 </div>
@@ -283,128 +234,62 @@ Can you tell me more about customization options and delivery time?`;
           </div>
         </section>
 
-        {/* Categories Section */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white/40 backdrop-blur-sm">
+        {/* Categories Section - NOW CLICKABLE & SCROLLABLE */}
+        <section ref={shopByCategoryRef} className="py-16 px-4 sm:px-6 lg:px-8 bg-white/40 backdrop-blur-sm">
           <div className="max-w-7xl mx-auto">
             <h3 className="text-3xl font-bold text-amber-950 text-center mb-12">Shop by Category</h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                { name: 'Flowers & Bouquets', icon: '🌸', color: 'from-pink-100 to-rose-100' },
-                { name: 'Gifting Items', icon: '🎁', color: 'from-amber-100 to-yellow-100' },
-                { name: 'Accessories', icon: '✨', color: 'from-purple-100 to-pink-100' },
-                { name: 'Seasonal', icon: '🎊', color: 'from-orange-100 to-red-100' },
-              ].map((cat, idx) => (
-                <div key={idx} className={`bg-gradient-to-br ${cat.color} p-8 rounded-2xl text-center hover:shadow-lg transition-all duration-200 cursor-pointer hover:scale-105`}>
+              {categoryLinks.map((cat, idx) => (
+                <Link
+                  key={idx}
+                  href={`/category/${cat.slug}`}
+                  className={`bg-gradient-to-br ${cat.color} p-8 rounded-2xl text-center hover:shadow-lg transition-all duration-200 cursor-pointer hover:scale-105`}
+                >
                   <p className="text-5xl mb-4">{cat.icon}</p>
                   <h4 className="font-semibold text-amber-950 text-lg">{cat.name}</h4>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Category-based Horizontal Scroll Sections */}
-        {Object.entries(productsByCategory).map(([categoryName, products]) => (
-          <section key={categoryName} className="py-16 px-4 sm:px-6 lg:px-8 border-b border-amber-100">
-            <div className="max-w-7xl mx-auto">
-              <h3 className="text-2xl font-bold text-amber-950 mb-6">{categoryName}</h3>
-              
-              <div className="relative">
-                {/* Left Arrow */}
-                <button
-                  onClick={() => scroll(categoryName, 'left')}
-                  className="absolute left-0 top-1/3 -translate-y-1/2 z-10 bg-white/80 hover:bg-white shadow-lg rounded-full p-2 transition-all duration-200"
-                >
-                  <ChevronLeft className="w-6 h-6 text-amber-600" />
-                </button>
-
-                {/* Products Scroll */}
-                <div
-                  ref={(el) => (scrollRefs.current[categoryName] = el)}
-                  className="overflow-x-auto scrollbar-hide"
-                  style={{ scrollBehavior: 'smooth' }}
-                >
-                  <div className="flex gap-6 pb-4 px-12">
-                    {products.map((product) => (
-                      <div
-                        key={product.id}
-                        onClick={() => handleBuyClick(product)}
-                        onMouseEnter={() => setHoveredProduct(product.id)}
-                        onMouseLeave={() => setHoveredProduct(null)}
-                        className="flex-shrink-0 w-72 bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer group"
-                      >
-                        <div className="h-64 bg-gradient-to-br from-amber-100 to-rose-100 flex items-center justify-center relative overflow-hidden">
-                          <p className={`text-8xl transition-all duration-300 ${hoveredProduct === product.id ? 'scale-110' : ''}`}>
-                            {product.image}
-                          </p>
-                          <div className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg">
-                            <Heart className="w-5 h-5 text-rose-500" />
-                          </div>
-                        </div>
-
-                        <div className="p-6 space-y-4">
-                          <div>
-                            <p className="text-xs font-semibold text-amber-600 uppercase">{product.category}</p>
-                            <h4 className="text-lg font-bold text-amber-950 mt-2">{product.name}</h4>
-                            <p className="text-sm text-amber-800 mt-1">Colors: {product.color}</p>
-                          </div>
-
-                          <div className="text-2xl font-bold text-amber-600">{product.price}</div>
-
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              handleOrderClick(product);
-                            }}
-                            className="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 text-sm"
-                          >
-                            <MessageCircle className="w-4 h-4" />
-                            Order Now
-                          </button>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Right Arrow */}
-                <button
-                  onClick={() => scroll(categoryName, 'right')}
-                  className="absolute right-0 top-1/3 -translate-y-1/2 z-10 bg-white/80 hover:bg-white shadow-lg rounded-full p-2 transition-all duration-200"
-                >
-                  <ChevronRight className="w-6 h-6 text-amber-600" />
-                </button>
-              </div>
-            </div>
-          </section>
-        ))}
-
-        {/* Search Results */}
+        {/* Search Results - FULLY WORKING SEARCH */}
         {searchQuery && (
-          <section className="py-16 px-4 sm:px-6 lg:px-8">
+          <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-amber-50 to-yellow-50">
             <div className="max-w-7xl mx-auto">
-              <h3 className="text-2xl font-bold text-amber-950 mb-6">Search Results for "{searchQuery}"</h3>
+              <h3 className="text-2xl font-bold text-amber-950 mb-6">
+                Search Results for "{searchQuery}" ({filteredProducts.length} found)
+              </h3>
+              
               {filteredProducts.length > 0 ? (
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                   {filteredProducts.map((product) => (
                     <div
                       key={product.id}
                       onClick={() => handleBuyClick(product)}
+                      onMouseEnter={() => setHoveredProduct(product.id)}
+                      onMouseLeave={() => setHoveredProduct(null)}
                       className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer"
                     >
-                      <div className="h-48 bg-gradient-to-br from-amber-100 to-rose-100 flex items-center justify-center">
-                        <p className="text-6xl">{product.image}</p>
+                      <div className="h-48 bg-gradient-to-br from-amber-100 to-rose-100 flex items-center justify-center relative">
+                        <p className={`text-6xl transition-all duration-300 ${hoveredProduct === product.id ? 'scale-110' : ''}`}>
+                          {product.image}
+                        </p>
+                        <div className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg">
+                          <Heart className="w-4 h-4 text-rose-500" />
+                        </div>
                       </div>
                       <div className="p-4 space-y-2">
                         <p className="text-xs font-semibold text-amber-600">{product.category}</p>
-                        <h4 className="font-bold text-amber-950">{product.name}</h4>
+                        <h4 className="font-bold text-amber-950 line-clamp-2 text-sm">{product.name}</h4>
+                        <p className="text-xs text-amber-800">Colors: {product.color}</p>
                         <p className="text-amber-600 font-bold">{product.price}</p>
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
-                            handleOrderClick(product);
+                            handleWhatsAppClick(product);
                           }}
-                          className="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg text-sm font-semibold"
+                          className="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg text-sm font-semibold transition-all"
                         >
                           Order
                         </button>
@@ -413,7 +298,9 @@ Can you tell me more about customization options and delivery time?`;
                   ))}
                 </div>
               ) : (
-                <p className="text-center text-amber-900 py-12">No products found. Try a different search term!</p>
+                <p className="text-center text-amber-900 text-lg py-12">
+                  No products found for "{searchQuery}". Try searching for "flower", "rakhi", "accessories", etc.
+                </p>
               )}
             </div>
           </section>
@@ -476,7 +363,7 @@ Can you tell me more about customization options and delivery time?`;
 
                   {/* Offers Section in Modal */}
                   <div className="space-y-3 bg-gradient-to-r from-orange-50 to-yellow-50 p-4 rounded-lg border border-orange-200">
-                    <h4 className="font-bold text-orange-900 text-sm">✨ Available Offers for this Product:</h4>
+                    <h4 className="font-bold text-orange-900 text-sm">✨ Available Offers:</h4>
                     <div className="space-y-2 text-xs">
                       <div className="flex items-start gap-2">
                         <span className="text-lg">🎁</span>
@@ -489,14 +376,14 @@ Can you tell me more about customization options and delivery time?`;
                         <span className="text-lg">🎀</span>
                         <div>
                           <p className="font-semibold text-blue-800">Free Gift on orders above ₹899/-</p>
-                          <p className="text-gray-700">Add more items to unlock this offer</p>
+                          <p className="text-gray-700">Spend ₹899 or more</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-2">
                         <span className="text-lg">💰</span>
                         <div>
                           <p className="font-semibold text-purple-800">Extra Discounts on orders above ₹1299/-</p>
-                          <p className="text-gray-700">Spend more, save more!</p>
+                          <p className="text-gray-700">Spend ₹1299 or more</p>
                         </div>
                       </div>
                     </div>
@@ -516,7 +403,7 @@ Can you tell me more about customization options and delivery time?`;
 
                     <button
                       onClick={() => {
-                        handleOrderClick(selectedProduct);
+                        handleWhatsAppClick(selectedProduct);
                         setSelectedProduct(null);
                       }}
                       className="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-2"
@@ -541,12 +428,15 @@ Can you tell me more about customization options and delivery time?`;
                   <p>Threads By Maa was born from a mother's love for crochet and a daughter's dream to share handmade magic with the world.</p>
                   <p>Each piece is created with passion, premium materials, and the kind of care that only comes from making something with your own hands.</p>
                 </div>
-                <button onClick={handleQuickInquiry} className="mt-6 bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200">
+                <button
+                  onClick={handleQuickInquiry}
+                  className="mt-6 bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200"
+                >
                   Start Your Custom Order
                 </button>
               </div>
               <div className="h-96 bg-gradient-to-br from-rose-100 to-amber-100 rounded-3xl flex items-center justify-center shadow-xl text-8xl">
-                👩‍💏❤️👧
+                👩‍💕👧
               </div>
             </div>
           </div>
