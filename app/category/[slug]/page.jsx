@@ -5,9 +5,17 @@ import { MessageCircle, Heart, Leaf, ChevronLeft, X } from 'lucide-react';
 import Link from 'next/link';
 import { getProductsByCategory } from '../../productsData';
 
+// Map slug to exact category name
+const slugToCategoryMap = {
+  'flowers-bouquets': 'Flowers & Bouquets',
+  'accessories': 'Accessories',
+  'home-decor': 'Home Decor',
+  'raksha-bandhan-2026': 'Raksha Bandhan 2026',
+};
+
 export default function CategoryPage({ params }) {
   const { slug } = params;
-  const categoryName = slug.replace(/-/g, ' ');
+  const categoryName = slugToCategoryMap[slug] || slug;
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [hoveredProduct, setHoveredProduct] = useState(null);
 

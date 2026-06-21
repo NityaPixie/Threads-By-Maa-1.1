@@ -234,7 +234,7 @@ Can you tell me more about customization options and delivery time?`;
           </div>
         </section>
 
-        {/* Categories Section - NOW CLICKABLE & SCROLLABLE */}
+        {/* Categories Section */}
         <section ref={shopByCategoryRef} className="py-16 px-4 sm:px-6 lg:px-8 bg-white/40 backdrop-blur-sm">
           <div className="max-w-7xl mx-auto">
             <h3 className="text-3xl font-bold text-amber-950 text-center mb-12">Shop by Category</h3>
@@ -253,7 +253,93 @@ Can you tell me more about customization options and delivery time?`;
           </div>
         </section>
 
-        {/* Search Results - FULLY WORKING SEARCH */}
+        {/* Category-based Horizontal Scroll Sections */}
+        {Object.entries(getAllProducts().reduce((acc, product) => {
+          if (!acc[product.category]) acc[product.category] = [];
+          acc[product.category].push(product);
+          return acc;
+        }, {})).map(([categoryName, products]) => (
+          <section key={categoryName} className="py-16 px-4 sm:px-6 lg:px-8 border-b border-amber-100">
+            <div className="max-w-7xl mx-auto">
+              <h2 className="text-3xl font-bold text-amber-950 mb-8">{categoryName}</h2>
+
+              <div className="relative">
+                {/* Left Arrow */}
+                <button
+                  onClick={() => {
+                    const ref = document.querySelector(`[data-category="${categoryName}"]`);
+                    if (ref) ref.scrollBy({ left: -300, behavior: 'smooth' });
+                  }}
+                  className="absolute left-0 top-1/3 -translate-y-1/2 z-10 bg-white/80 hover:bg-white shadow-lg rounded-full p-2 transition-all duration-200"
+                >
+                  <ChevronLeft className="w-6 h-6 text-amber-600" />
+                </button>
+
+                {/* Products Scroll */}
+                <div
+                  data-category={categoryName}
+                  className="overflow-x-auto scrollbar-hide"
+                  style={{ scrollBehavior: 'smooth' }}
+                >
+                  <div className="flex gap-6 pb-4 px-12">
+                    {products.slice(0, 5).map((product) => (
+                      <div
+                        key={product.id}
+                        onClick={() => handleBuyClick(product)}
+                        onMouseEnter={() => setHoveredProduct(product.id)}
+                        onMouseLeave={() => setHoveredProduct(null)}
+                        className="flex-shrink-0 w-72 bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                      >
+                        <div className="h-64 bg-gradient-to-br from-amber-100 to-rose-100 flex items-center justify-center relative overflow-hidden">
+                          <p className={`text-8xl transition-all duration-300 ${hoveredProduct === product.id ? 'scale-110' : ''}`}>
+                            {product.image}
+                          </p>
+                          <div className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg">
+                            <Heart className="w-5 h-5 text-rose-500" />
+                          </div>
+                        </div>
+
+                        <div className="p-6 space-y-4">
+                          <div>
+                            <p className="text-xs font-semibold text-amber-600 uppercase">{product.category}</p>
+                            <h4 className="text-lg font-bold text-amber-950 mt-2">{product.name}</h4>
+                            <p className="text-sm text-amber-800 mt-1">Colors: {product.color}</p>
+                          </div>
+
+                          <div className="text-2xl font-bold text-amber-600">{product.price}</div>
+
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleWhatsAppClick(product);
+                            }}
+                            className="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 text-sm"
+                          >
+                            <MessageCircle className="w-4 h-4" />
+                            Order Now
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Right Arrow */}
+                <button
+                  onClick={() => {
+                    const ref = document.querySelector(`[data-category="${categoryName}"]`);
+                    if (ref) ref.scrollBy({ left: 300, behavior: 'smooth' });
+                  }}
+                  className="absolute right-0 top-1/3 -translate-y-1/2 z-10 bg-white/80 hover:bg-white shadow-lg rounded-full p-2 transition-all duration-200"
+                >
+                  <ChevronRight className="w-6 h-6 text-amber-600" />
+                </button>
+              </div>
+            </div>
+          </section>
+        ))}
+
+        {/* Search Results */}
         {searchQuery && (
           <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-amber-50 to-yellow-50">
             <div className="max-w-7xl mx-auto">
