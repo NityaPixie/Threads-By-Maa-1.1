@@ -191,7 +191,7 @@ Can you tell me more about customization options and delivery time?`;
                   </button>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4 pt-6 border-t border-amber-200">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 pt-6 border-t border-amber-200">
                   <div>
                     <p className="text-3xl font-bold text-amber-600">100%</p>
                     <p className="text-amber-900 text-sm">Handmade</p>
@@ -200,6 +200,16 @@ Can you tell me more about customization options and delivery time?`;
                     <p className="text-3xl font-bold text-amber-600">Custom</p>
                     <p className="text-amber-900 text-sm">Orders Welcome</p>
                   </div>
+                  <a
+                    href="https://www.instagram.com/threads.by.maa?stkn=MWU2dDdmbjF0dWlyOQ=="
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-gradient-to-br from-pink-100 to-rose-100 p-4 rounded-lg text-center hover:shadow-md transition-all flex flex-col items-center justify-center gap-2"
+                  >
+                    <span className="text-2xl">📸</span>
+                    <p className="text-sm font-semibold text-rose-900">Follow Us</p>
+                    <p className="text-xs text-rose-800">@threads.by.maa</p>
+                  </a>
                 </div>
               </div>
 
