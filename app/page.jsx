@@ -552,7 +552,7 @@ Can you tell me more about customization options and delivery time?`;
         </section>
 
         {/* Coming Soon Section */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-pink-50 via-yellow-50 to-stone-50 border-y-4 border-pink-200">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-pink-50 via-purple-50 to-pink-50 border-y-4 border-pink-200">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-5xl font-bold text-purple-950 mb-4">✨ Coming Soon ✨</h2>
@@ -608,9 +608,9 @@ Can you tell me more about customization options and delivery time?`;
               </div>
             </div>
 
-            <div className="mt-12 p-8 bg-gradient-to-r from-purple-100 to-pink-100 rounded-2xl border-2 border-purple-300 text-center">
-              <p className="text-purple-950 font-semibold mb-2">👗 What's Coming:</p>
-              <p className="text-purple-900">Crochet Kids Wear • Fashion Summer Wear • Warm Winter Wear • Pinterest Inspired Adult Wear</p>
+            <div className="mt-12 p-8 bg-gradient-to-r from-purple-100 to-pink-100 rounded-2xl border-2 border-purple-200 text-center">
+              <p className="text-purple-900 font-semibold mb-2">👗 What's Coming:</p>
+              <p className="text-purple-800">Crochet Kids Wear • Fashion Summer Wear • Warm Winter Wear • Pinterest Inspired Adult Wear</p>
             </div>
           </div>
         </section>
