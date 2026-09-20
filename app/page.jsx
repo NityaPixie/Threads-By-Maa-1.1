@@ -39,10 +39,10 @@ const ThreadsByMaa = () => {
   ) : [];
 
   const categoryLinks = [
-    { name: 'Flowers & Bouquets', icon: '🌸', color: 'from-pink-100 to-rose-100', slug: 'flowers-bouquets' },
-    { name: 'Accessories', icon: '✨', color: 'from-purple-100 to-pink-100', slug: 'accessories' },
-    { name: 'Home Decor', icon: '🏠', color: 'from-amber-100 to-yellow-100', slug: 'home-decor' },
-    { name: 'Fashion & Kids Wear', icon: '👗', color: 'from-violet-100 to-purple-100', slug: 'fashion-kids', comingSoon: true },
+    { name: 'Flowers & Bouquets', icon: '🌸', color: 'from-pink-100 to-pink-50', slug: 'flowers-bouquets' },
+    { name: 'Accessories', icon: '✨', color: 'from-yellow-100 to-yellow-50', slug: 'accessories' },
+    { name: 'Home Decor', icon: '🏠', color: 'from-amber-100 to-amber-50', slug: 'home-decor' },
+    { name: 'Fashion & Kids Wear', icon: '👗', color: 'from-purple-100 to-pink-50', slug: 'fashion-kids', comingSoon: true },
   ];
 
   const trackEvent = (eventType, productName) => {
@@ -86,9 +86,9 @@ Can you tell me more about customization options and delivery time?`;
         <meta name="description" content="Handmade crochet flowers, bouquets, and premium gifts by Threads By Maa." />
       </Head>
 
-      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-50">
+      <div className="min-h-screen bg-gradient-to-br from-stone-50 via-amber-50 to-pink-50">
         {/* Rotating Quote Banner */}
-        <div className="bg-gradient-to-r from-rose-200 via-amber-200 to-orange-200 text-amber-900 py-1 px-4">
+        <div className="bg-gradient-to-r from-yellow-100 via-pink-100 to-yellow-100 text-amber-800 py-1 px-4">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
             <button
               onClick={() => setCurrentQuoteIndex((prev) => (prev - 1 + quotes.length) % quotes.length)}
@@ -169,46 +169,46 @@ Can you tell me more about customization options and delivery time?`;
         </section>
 
         {/* Offers & Discounts Section */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-red-50 to-orange-50 border-y-2 border-orange-200">
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-pink-50 to-yellow-50 border-y-2 border-yellow-200">
           <div className="max-w-7xl mx-auto">
             <h3 className="text-3xl font-bold text-red-900 text-center mb-12">🎉 Special Offers & Discounts</h3>
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-gradient-to-br from-green-100 to-emerald-100 p-8 rounded-2xl border-2 border-green-300 shadow-lg hover:shadow-xl transition-all">
+              <div className="bg-gradient-to-br from-yellow-100 to-yellow-50 p-8 rounded-2xl border-2 border-yellow-200 shadow-lg hover:shadow-xl transition-all">
                 <div className="text-5xl mb-4">🎁</div>
-                <h4 className="text-xl font-bold text-green-900 mb-3">First Order Gift</h4>
-                <p className="text-green-800 font-semibold text-lg mb-2">Get a Free Gift!</p>
-                <p className="text-green-700 text-sm">On your first crochet purchase with us. A special welcome gift just for you!</p>
+                <h4 className="text-xl font-bold text-amber-900 mb-3">First Order Gift</h4>
+                <p className="text-amber-800 font-semibold text-lg mb-2">Get a Free Gift!</p>
+                <p className="text-amber-700 text-sm">On your first crochet purchase with us. A special welcome gift just for you!</p>
               </div>
 
-              <div className="bg-gradient-to-br from-blue-100 to-cyan-100 p-8 rounded-2xl border-2 border-blue-300 shadow-lg hover:shadow-xl transition-all">
+              <div className="bg-gradient-to-br from-pink-100 to-pink-50 p-8 rounded-2xl border-2 border-pink-200 shadow-lg hover:shadow-xl transition-all">
                 <div className="text-5xl mb-4">🎀</div>
-                <h4 className="text-xl font-bold text-blue-900 mb-3">Orders Above ₹899</h4>
-                <p className="text-blue-800 font-semibold text-lg mb-2">Free Gift Included!</p>
-                <p className="text-blue-700 text-sm">Spend ₹899 or more and get a beautiful handmade gift absolutely free!</p>
+                <h4 className="text-xl font-bold text-rose-900 mb-3">Orders Above ₹899</h4>
+                <p className="text-rose-800 font-semibold text-lg mb-2">Free Gift Included!</p>
+                <p className="text-rose-700 text-sm">Spend ₹899 or more and get a beautiful handmade gift absolutely free!</p>
               </div>
 
-              <div className="bg-gradient-to-br from-purple-100 to-pink-100 p-8 rounded-2xl border-2 border-purple-300 shadow-lg hover:shadow-xl transition-all">
+              <div className="bg-gradient-to-br from-amber-100 to-amber-50 p-8 rounded-2xl border-2 border-amber-200 shadow-lg hover:shadow-xl transition-all">
                 <div className="text-5xl mb-4">💰</div>
-                <h4 className="text-xl font-bold text-purple-900 mb-3">Orders Above ₹1299</h4>
-                <p className="text-purple-800 font-semibold text-lg mb-2">Extra Discounts!</p>
-                <p className="text-purple-700 text-sm">Spend ₹1299 or more and enjoy exclusive extra discounts on your order!</p>
+                <h4 className="text-xl font-bold text-amber-900 mb-3">Orders Above ₹1299</h4>
+                <p className="text-amber-800 font-semibold text-lg mb-2">Extra Discounts!</p>
+                <p className="text-amber-700 text-sm">Spend ₹1299 or more and enjoy exclusive extra discounts on your order!</p>
               </div>
             </div>
           </div>
         </section>
 
         {/* Categories Section */}
-        <section ref={shopByCategoryRef} className="py-16 px-4 sm:px-6 lg:px-8 bg-white/40 backdrop-blur-sm">
+        <section ref={shopByCategoryRef} className="py-16 px-4 sm:px-6 lg:px-8 bg-stone-50/50 backdrop-blur-sm">
           <div className="max-w-7xl mx-auto">
-            <h3 className="text-3xl font-bold text-amber-950 text-center mb-12">Shop by Category</h3>
+            <h3 className="text-3xl font-bold text-amber-900 text-center mb-12">Shop by Category</h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {categoryLinks.map((cat, idx) => (
                 <div key={idx}>
                   {cat.comingSoon ? (
                     <div className={`bg-gradient-to-br ${cat.color} p-8 rounded-2xl text-center hover:shadow-lg transition-all duration-200 cursor-pointer hover:scale-105 relative`}>
                       <p className="text-5xl mb-4">{cat.icon}</p>
-                      <h4 className="font-semibold text-amber-950 text-lg">{cat.name}</h4>
-                      <div className="mt-4 inline-block bg-red-500 text-white px-4 py-1 rounded-full text-sm font-bold">Coming Soon</div>
+                      <h4 className="font-semibold text-amber-900 text-lg">{cat.name}</h4>
+                      <div className="mt-4 inline-block bg-amber-400 text-amber-900 px-4 py-1 rounded-full text-sm font-bold">Coming Soon</div>
                     </div>
                   ) : (
                     <Link
@@ -216,7 +216,7 @@ Can you tell me more about customization options and delivery time?`;
                       className={`bg-gradient-to-br ${cat.color} p-8 rounded-2xl text-center hover:shadow-lg transition-all duration-200 cursor-pointer hover:scale-105 block`}
                     >
                       <p className="text-5xl mb-4">{cat.icon}</p>
-                      <h4 className="font-semibold text-amber-950 text-lg">{cat.name}</h4>
+                      <h4 className="font-semibold text-amber-900 text-lg">{cat.name}</h4>
                     </Link>
                   )}
                 </div>
@@ -226,7 +226,7 @@ Can you tell me more about customization options and delivery time?`;
         </section>
 
         {/* Our Story Section */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 border-y-2 border-amber-200">
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-stone-50 via-yellow-50 to-pink-50 border-y-2 border-yellow-200">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-4xl font-bold text-amber-950 text-center mb-12">Our Story</h2>
             <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -524,7 +524,7 @@ Can you tell me more about customization options and delivery time?`;
         )}
 
         {/* Follow on Instagram Section */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-pink-50 to-rose-50">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-yellow-50 to-pink-50">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
@@ -552,7 +552,7 @@ Can you tell me more about customization options and delivery time?`;
         </section>
 
         {/* Coming Soon Section */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50 border-y-4 border-purple-300">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-pink-50 via-yellow-50 to-stone-50 border-y-4 border-pink-200">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-5xl font-bold text-purple-950 mb-4">✨ Coming Soon ✨</h2>
@@ -616,13 +616,13 @@ Can you tell me more about customization options and delivery time?`;
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-amber-500 via-rose-500 to-orange-500 text-white">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-amber-400 via-rose-300 to-amber-300 text-amber-900">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <h3 className="text-4xl font-bold">Ready to Order?</h3>
             <p className="text-xl opacity-90">Chat with us on WhatsApp for personalized recommendations!</p>
             <button
               onClick={handleQuickInquiry}
-              className="bg-white text-amber-600 hover:bg-gray-100 px-10 py-4 rounded-full font-bold text-lg transition-all duration-200 shadow-lg hover:shadow-xl inline-flex items-center gap-2"
+              className="bg-white text-rose-700 hover:bg-stone-50 px-10 py-4 rounded-full font-bold text-lg transition-all duration-200 shadow-lg hover:shadow-xl inline-flex items-center gap-2"
             >
               <MessageCircle className="w-6 h-6" />
               Chat Now on WhatsApp
@@ -631,7 +631,7 @@ Can you tell me more about customization options and delivery time?`;
         </section>
 
         {/* Footer */}
-        <footer className="bg-amber-950 text-amber-50 py-12 px-4 sm:px-6 lg:px-8">
+        <footer className="bg-stone-800 text-stone-50 py-12 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               <div>
@@ -651,11 +651,11 @@ Can you tell me more about customization options and delivery time?`;
                 <p className="text-xs text-amber-300">Scan to follow us!</p>
               </div>
             </div>
-            <div className="border-t border-amber-800 pt-8 space-y-3">
-              <div className="text-center text-sm text-amber-300">
+            <div className="border-t border-stone-700 pt-8 space-y-3">
+              <div className="text-center text-sm text-stone-300">
                 <p>© 2026 Threads By Maa. All handmade with love. 🧶💕</p>
               </div>
-              <div className="text-center text-xs text-amber-400">
+              <div className="text-center text-xs text-stone-400">
                 <p><span className="font-bold">Brand Owner:</span> Pushpa Singh</p>
                 <p><span className="font-bold">Managed by:</span> Nitya Singh</p>
                 <p className="mt-2">
