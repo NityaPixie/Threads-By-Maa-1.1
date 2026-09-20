@@ -585,6 +585,56 @@ Can you tell me more about customization options and delivery time?`;
           </div>
         </section>
 
+        {/* Coming Soon Section */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50 border-y-4 border-purple-300">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-5xl font-bold text-purple-950 mb-4">✨ Coming Soon ✨</h2>
+              <p className="text-xl text-purple-900 mb-4">
+                Fashion is our passion. Kids Wear & Fashion Collections launching soon!
+              </p>
+              <p className="text-lg text-purple-800 max-w-3xl mx-auto">
+                While our handmade crochet flowers & home decor are beautiful, our true expertise lies in creating stunning fashion pieces. Get ready for our exclusive Kids Wear & Fashion Collection!
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              <div className="rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-300">
+                <img
+                  src="/images/products/Coming Soon (Kids Wear & Fashion Collection)/Kidswear 1.png"
+                  alt="Kids Fashion Collection"
+                  className="w-full h-auto"
+                />
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-300">
+                <img
+                  src="/images/products/Coming Soon (Kids Wear & Fashion Collection)/Kidswear 2.png"
+                  alt="Kids Fashion Collection"
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border-2 border-purple-300 inline-block">
+                <p className="text-purple-900 font-semibold text-lg mb-4">Be the first to know!</p>
+                <p className="text-purple-800 mb-6">Subscribe to get notified when our Fashion Collection launches</p>
+                <button
+                  onClick={handleQuickInquiry}
+                  className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 rounded-lg font-bold hover:shadow-lg transition-all"
+                >
+                  💬 Notify Me on WhatsApp
+                </button>
+              </div>
+            </div>
+
+            <div className="mt-12 p-8 bg-gradient-to-r from-purple-100 to-pink-100 rounded-2xl border-2 border-purple-300 text-center">
+              <p className="text-purple-950 font-semibold mb-2">👗 What's Coming:</p>
+              <p className="text-purple-900">Handmade crochet kids wear • Fashion accessories • Trendy streetwear • Custom designs</p>
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-amber-500 via-rose-500 to-orange-500 text-white">
           <div className="max-w-4xl mx-auto text-center space-y-8">
