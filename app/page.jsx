@@ -106,60 +106,6 @@ Can you tell me more about customization options and delivery time?`;
           </div>
         </div>
 
-        {/* Navigation */}
-        <nav className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-amber-100 shadow-sm">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-            <div className="flex justify-between items-center gap-4 mb-3">
-              <div className="flex items-center gap-2">
-                <Image
-                  src="/images/logo.png"
-                  alt="Threads By Maa"
-                  width={180}
-                  height={60}
-                  className="h-auto"
-                  priority
-                />
-              </div>
-
-              {/* Desktop Search */}
-              <div className="hidden md:flex flex-1 max-w-md mx-4">
-                <div className="relative w-full">
-                  <Search className="absolute left-3 top-3 w-5 h-5 text-amber-600" />
-                  <input
-                    type="text"
-                    placeholder="Search products..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2 border border-amber-200 rounded-lg focus:outline-none focus:border-amber-600"
-                  />
-                </div>
-              </div>
-
-              <button
-                onClick={handleQuickInquiry}
-                className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl"
-              >
-                <MessageCircle className="w-5 h-5" />
-                <span className="hidden sm:inline">Chat</span>
-              </button>
-            </div>
-
-            {/* Mobile Search */}
-            <div className="md:hidden">
-              <div className="relative w-full">
-                <Search className="absolute left-3 top-3 w-5 h-5 text-amber-600" />
-                <input
-                  type="text"
-                  placeholder="Search..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 border border-amber-200 rounded-lg focus:outline-none focus:border-amber-600 text-sm"
-                />
-              </div>
-            </div>
-          </div>
-        </nav>
-
         {/* Hero Section */}
         <section className="relative overflow-hidden pt-12 pb-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
