@@ -206,7 +206,7 @@ Can you tell me more about customization options and delivery time?`;
                     rel="noopener noreferrer"
                     className="bg-gradient-to-br from-pink-100 to-rose-100 p-4 rounded-lg text-center hover:shadow-md transition-all flex flex-col items-center justify-center gap-2"
                   >
-                    <span className="text-2xl">📸</span>
+                    <span className="text-2xl">📱</span>
                     <p className="text-sm font-semibold text-rose-900">Follow Us</p>
                     <p className="text-xs text-rose-800">@threads.by.maa</p>
                   </a>
@@ -596,6 +596,7 @@ Can you tell me more about customization options and delivery time?`;
                 </a>
               </div>
               <div className="text-center">
+                <div className="mb-4 text-6xl">📱</div>
                 <img src="/images/QR Instagram.jpeg" alt="Follow us on Instagram" className="w-full max-w-sm mx-auto rounded-2xl shadow-xl" />
               </div>
             </div>
