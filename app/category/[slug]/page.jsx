@@ -86,9 +86,11 @@ Can you tell me more about customization options and delivery time?`;
                   >
                     {/* Product Image */}
                     <div className="h-56 bg-gradient-to-br from-amber-100 to-rose-100 flex items-center justify-center relative overflow-hidden">
-                      <p className={`text-7xl transition-all duration-300 ${hoveredProduct === product.id ? 'scale-110' : ''}`}>
-                        {product.image}
-                      </p>
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className={`w-full h-full object-cover transition-all duration-300 ${hoveredProduct === product.id ? 'scale-110' : ''}`}
+                      />
                       <div className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg">
                         <Heart className="w-5 h-5 text-rose-500" />
                       </div>
@@ -139,13 +141,21 @@ Can you tell me more about customization options and delivery time?`;
               <div className="grid md:grid-cols-2 gap-8 p-8">
                 {/* Images */}
                 <div className="space-y-4">
-                  <div className="bg-gradient-to-br from-amber-100 to-rose-100 h-96 rounded-xl flex items-center justify-center text-9xl">
-                    {selectedProduct.image}
+                  <div className="bg-gradient-to-br from-amber-100 to-rose-100 h-96 rounded-xl overflow-hidden flex items-center justify-center">
+                    <img
+                      src={selectedProduct.image}
+                      alt={selectedProduct.name}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div className="grid grid-cols-3 gap-2">
                     {selectedProduct.images.map((img, idx) => (
-                      <div key={idx} className="bg-gradient-to-br from-amber-100 to-rose-100 h-20 rounded-lg flex items-center justify-center text-3xl cursor-pointer hover:shadow-md">
-                        {img}
+                      <div key={idx} className="bg-gradient-to-br from-amber-100 to-rose-100 h-20 rounded-lg overflow-hidden cursor-pointer hover:shadow-md">
+                        <img
+                          src={img}
+                          alt={`${selectedProduct.name} - view ${idx + 1}`}
+                          className="w-full h-full object-cover"
+                        />
                       </div>
                     ))}
                   </div>
