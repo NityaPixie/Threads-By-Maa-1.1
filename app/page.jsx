@@ -1,9 +1,10 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { MessageCircle, Heart, Leaf, ChevronLeft, ChevronRight, Search, X } from 'lucide-react';
+import { MessageCircle, Heart, ChevronLeft, ChevronRight, Search, X } from 'lucide-react';
 import Head from 'next/head';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getAllProducts } from './productsData';
 
 const ThreadsByMaa = () => {
@@ -110,8 +111,14 @@ Can you tell me more about customization options and delivery time?`;
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
             <div className="flex justify-between items-center gap-4 mb-3">
               <div className="flex items-center gap-2">
-                <Leaf className="w-6 h-6 text-amber-600" />
-                <h1 className="text-2xl font-bold text-amber-900">Threads By Maa</h1>
+                <Image
+                  src="/images/logo.png"
+                  alt="Threads By Maa"
+                  width={180}
+                  height={60}
+                  className="h-auto"
+                  priority
+                />
               </div>
 
               {/* Desktop Search */}
@@ -548,10 +555,7 @@ Can you tell me more about customization options and delivery time?`;
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               <div>
-                <h4 className="font-bold text-lg mb-4 flex items-center gap-2">
-                  <Leaf className="w-5 h-5" />
-                  Threads By Maa
-                </h4>
+                <h4 className="font-bold text-lg mb-4">Threads By Maa</h4>
                 <p className="text-amber-200 text-sm">Handmade crochet products created with love in New Delhi.</p>
               </div>
               <div>
