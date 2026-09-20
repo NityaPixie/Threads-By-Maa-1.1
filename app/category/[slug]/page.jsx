@@ -45,7 +45,7 @@ Can you tell me more about customization options and delivery time?`;
 
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-br from-yellow-50 via-amber-50 to-orange-50">
+      <div className="min-h-screen bg-gradient-to-br from-stone-100 via-rose-50 to-stone-50">
         {/* Navigation */}
         <nav className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-amber-100 shadow-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
@@ -62,7 +62,7 @@ Can you tell me more about customization options and delivery time?`;
         </nav>
 
         {/* Category Header */}
-        <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-amber-100 to-rose-100">
+        <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-rose-100 to-amber-100">
           <div className="max-w-7xl mx-auto">
             <h1 className="text-5xl font-bold text-amber-950 mb-4">{categoryName}</h1>
             <p className="text-lg text-amber-900">Browse our beautiful collection</p>
@@ -177,26 +177,26 @@ Can you tell me more about customization options and delivery time?`;
                   </div>
 
                   {/* Offers Section */}
-                  <div className="space-y-3 bg-gradient-to-r from-orange-50 to-yellow-50 p-4 rounded-lg border border-orange-200">
-                    <h4 className="font-bold text-orange-900 text-sm">✨ Available Offers:</h4>
+                  <div className="space-y-3 bg-gradient-to-r from-rose-50 to-amber-50 p-4 rounded-lg border border-rose-200">
+                    <h4 className="font-bold text-amber-950 text-sm">✨ Available Offers:</h4>
                     <div className="space-y-2 text-xs">
                       <div className="flex items-start gap-2">
                         <span className="text-lg">🎁</span>
                         <div>
-                          <p className="font-semibold text-green-800">First Order? Get a Free Gift</p>
-                          <p className="text-gray-700">On your first purchase</p>
+                          <p className="font-semibold text-rose-900">First Order? Get a Free Gift</p>
+                          <p className="text-amber-800">On your first purchase</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-2">
                         <span className="text-lg">🎀</span>
                         <div>
-                          <p className="font-semibold text-blue-800">Free Gift on orders above ₹899/-</p>
+                          <p className="font-semibold text-amber-900">Free Gift on orders above ₹899/-</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-2">
                         <span className="text-lg">💰</span>
                         <div>
-                          <p className="font-semibold text-purple-800">Extra Discounts on orders above ₹1299/-</p>
+                          <p className="font-semibold text-stone-900">Extra Discounts on orders above ₹1299/-</p>
                         </div>
                       </div>
                     </div>
