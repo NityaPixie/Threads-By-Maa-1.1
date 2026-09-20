@@ -306,36 +306,36 @@ Can you tell me more about customization options and delivery time?`;
                         onClick={() => handleBuyClick(product)}
                         onMouseEnter={() => setHoveredProduct(product.id)}
                         onMouseLeave={() => setHoveredProduct(null)}
-                        className="flex-shrink-0 w-72 bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                        className="flex-shrink-0 w-60 bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer group"
                       >
-                        <div className="h-64 bg-gradient-to-br from-amber-100 to-rose-100 flex items-center justify-center relative overflow-hidden">
+                        <div className="h-48 bg-gradient-to-br from-amber-100 to-rose-100 flex items-center justify-center relative overflow-hidden">
                           <img
                             src={product.image}
                             alt={product.name}
                             className={`w-full h-full object-cover transition-all duration-300 ${hoveredProduct === product.id ? 'scale-110' : ''}`}
                           />
-                          <div className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg">
-                            <Heart className="w-5 h-5 text-rose-500" />
+                          <div className="absolute top-3 right-3 bg-white rounded-full p-1 shadow-lg">
+                            <Heart className="w-4 h-4 text-rose-500" />
                           </div>
                         </div>
 
-                        <div className="p-6 space-y-4">
+                        <div className="p-4 space-y-2">
                           <div>
                             <p className="text-xs font-semibold text-amber-600 uppercase">{product.category}</p>
-                            <h4 className="text-lg font-bold text-amber-950 mt-2">{product.name}</h4>
-                            <p className="text-sm text-amber-800 mt-1">Colors: {product.color}</p>
+                            <h4 className="text-base font-bold text-amber-950 mt-1">{product.name}</h4>
+                            <p className="text-xs text-amber-800 mt-0.5">Colors: {product.color}</p>
                           </div>
 
-                          <div className="text-2xl font-bold text-amber-600">{product.price}</div>
+                          <div className="text-lg font-bold text-amber-600">{product.price}</div>
 
                           <button
                             onClick={(e) => {
                               e.stopPropagation();
                               handleWhatsAppClick(product);
                             }}
-                            className="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 text-sm"
+                            className="w-full bg-green-500 hover:bg-green-600 text-white py-1.5 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 text-xs"
                           >
-                            <MessageCircle className="w-4 h-4" />
+                            <MessageCircle className="w-3 h-3" />
                             Order Now
                           </button>
                         </div>
