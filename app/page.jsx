@@ -211,6 +211,14 @@ Can you tell me more about customization options and delivery time?`;
           </div>
         </section>
 
+        {/* Instagram QR Top */}
+        <section className="py-8 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-pink-50 to-rose-50 text-center">
+          <div className="max-w-7xl mx-auto">
+            <p className="text-sm text-amber-900 mb-4">Follow us on Instagram for daily updates & behind-the-scenes! 📸</p>
+            <img src="/images/QR Instagram.jpeg" alt="Instagram QR Code" className="h-32 mx-auto" />
+          </div>
+        </section>
+
         {/* Offers & Discounts Section */}
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-red-50 to-orange-50 border-y-2 border-orange-200">
           <div className="max-w-7xl mx-auto">
@@ -255,6 +263,48 @@ Can you tell me more about customization options and delivery time?`;
                   <h4 className="font-semibold text-amber-950 text-lg">{cat.name}</h4>
                 </Link>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Our Story Section */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 border-y-2 border-amber-200">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-4xl font-bold text-amber-950 text-center mb-12">Our Story</h2>
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              {/* Owner Image */}
+              <div className="flex justify-center">
+                <div className="rounded-2xl overflow-hidden shadow-2xl w-80">
+                  <img src="/images/Owner pic.JPG" alt="Pushpa Singh - Brand Owner" className="w-full h-auto" />
+                </div>
+              </div>
+
+              {/* Story Text */}
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-2xl font-bold text-amber-950 mb-3">Founded by Pushpa Singh</h3>
+                  <p className="text-lg text-amber-900 leading-relaxed">
+                    Threads By Maa is born from passion, creativity, and love for handmade crochet. Every piece is crafted with meticulous care and dedication to bring joy to your life.
+                  </p>
+                </div>
+
+                <div className="bg-white/60 rounded-xl p-6 border-2 border-amber-200">
+                  <p className="text-amber-900 font-semibold mb-2">Managed by: <span className="text-amber-950 font-bold">Nitya Singh</span></p>
+                  <p className="text-sm text-amber-800 mb-4">Follow Nitya's creative journey and daily updates:</p>
+                  <a
+                    href="https://www.instagram.com/nitya.singh_17?stkn=MWxqem1vaXBkdWFicg%3D%3D&utm_source=qr"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block bg-gradient-to-r from-pink-500 to-rose-500 text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg transition-all"
+                  >
+                    📸 @nitya.singh_17
+                  </a>
+                </div>
+
+                <p className="text-amber-900 italic">
+                  Every crochet creation is a labor of love, designed to bring warmth, beauty, and happiness into your home.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -565,13 +615,25 @@ Can you tell me more about customization options and delivery time?`;
                   <li><button className="hover:text-white transition">Custom Orders</button></li>
                 </ul>
               </div>
-              <div>
-                <h5 className="font-bold mb-4">Contact</h5>
-                <p className="text-sm text-amber-200">📞 +91 63861 88825<br />💬 WhatsApp Us</p>
+              <div className="text-center">
+                <h5 className="font-bold mb-4">Follow Us</h5>
+                <img src="/images/QR Instagram.jpeg" alt="Instagram QR Code" className="h-28 mx-auto mb-2" />
+                <p className="text-xs text-amber-300">Scan to follow us!</p>
               </div>
             </div>
-            <div className="border-t border-amber-800 pt-8 text-center text-sm text-amber-300">
-              <p>© 2026 Threads By Maa. All handmade with love. 🧶💕</p>
+            <div className="border-t border-amber-800 pt-8 space-y-3">
+              <div className="text-center text-sm text-amber-300">
+                <p>© 2026 Threads By Maa. All handmade with love. 🧶💕</p>
+              </div>
+              <div className="text-center text-xs text-amber-400">
+                <p><span className="font-bold">Brand Owner:</span> Pushpa Singh</p>
+                <p><span className="font-bold">Managed by:</span> Nitya Singh</p>
+                <p className="mt-2">
+                  <a href="https://www.instagram.com/nitya.singh_17?stkn=MWxqem1vaXBkdWFicg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
+                    📸 @nitya.singh_17
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
         </footer>
