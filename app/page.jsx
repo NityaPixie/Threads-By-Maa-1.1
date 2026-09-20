@@ -169,29 +169,29 @@ Can you tell me more about customization options and delivery time?`;
         </section>
 
         {/* Offers & Discounts Section */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-pink-50 to-yellow-50 border-y-2 border-yellow-200">
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-50 to-sky-50 border-y-2 border-blue-200">
           <div className="max-w-7xl mx-auto">
-            <h3 className="text-3xl font-bold text-red-900 text-center mb-12">🎉 Special Offers & Discounts</h3>
+            <h3 className="text-3xl font-bold text-blue-900 text-center mb-12">🎉 Special Offers & Discounts</h3>
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-gradient-to-br from-yellow-100 to-yellow-50 p-8 rounded-2xl border-2 border-yellow-200 shadow-lg hover:shadow-xl transition-all">
+              <div className="bg-gradient-to-br from-blue-100 to-blue-50 p-8 rounded-2xl border-2 border-blue-200 shadow-lg hover:shadow-xl transition-all">
                 <div className="text-5xl mb-4">🎁</div>
-                <h4 className="text-xl font-bold text-amber-900 mb-3">First Order Gift</h4>
-                <p className="text-amber-800 font-semibold text-lg mb-2">Get a Free Gift!</p>
-                <p className="text-amber-700 text-sm">On your first crochet purchase with us. A special welcome gift just for you!</p>
+                <h4 className="text-xl font-bold text-blue-900 mb-3">First Order Gift</h4>
+                <p className="text-blue-800 font-semibold text-lg mb-2">Get a Free Gift!</p>
+                <p className="text-blue-700 text-sm">On your first crochet purchase with us. A special welcome gift just for you!</p>
               </div>
 
-              <div className="bg-gradient-to-br from-pink-100 to-pink-50 p-8 rounded-2xl border-2 border-pink-200 shadow-lg hover:shadow-xl transition-all">
+              <div className="bg-gradient-to-br from-sky-100 to-sky-50 p-8 rounded-2xl border-2 border-sky-200 shadow-lg hover:shadow-xl transition-all">
                 <div className="text-5xl mb-4">🎀</div>
-                <h4 className="text-xl font-bold text-rose-900 mb-3">Orders Above ₹899</h4>
-                <p className="text-rose-800 font-semibold text-lg mb-2">Free Gift Included!</p>
-                <p className="text-rose-700 text-sm">Spend ₹899 or more and get a beautiful handmade gift absolutely free!</p>
+                <h4 className="text-xl font-bold text-sky-900 mb-3">Orders Above ₹899</h4>
+                <p className="text-sky-800 font-semibold text-lg mb-2">Free Gift Included!</p>
+                <p className="text-sky-700 text-sm">Spend ₹899 or more and get a beautiful handmade gift absolutely free!</p>
               </div>
 
-              <div className="bg-gradient-to-br from-amber-100 to-amber-50 p-8 rounded-2xl border-2 border-amber-200 shadow-lg hover:shadow-xl transition-all">
+              <div className="bg-gradient-to-br from-cyan-100 to-cyan-50 p-8 rounded-2xl border-2 border-cyan-200 shadow-lg hover:shadow-xl transition-all">
                 <div className="text-5xl mb-4">💰</div>
-                <h4 className="text-xl font-bold text-amber-900 mb-3">Orders Above ₹1299</h4>
-                <p className="text-amber-800 font-semibold text-lg mb-2">Extra Discounts!</p>
-                <p className="text-amber-700 text-sm">Spend ₹1299 or more and enjoy exclusive extra discounts on your order!</p>
+                <h4 className="text-xl font-bold text-cyan-900 mb-3">Orders Above ₹1299</h4>
+                <p className="text-cyan-800 font-semibold text-lg mb-2">Extra Discounts!</p>
+                <p className="text-cyan-700 text-sm">Spend ₹1299 or more and enjoy exclusive extra discounts on your order!</p>
               </div>
             </div>
           </div>
