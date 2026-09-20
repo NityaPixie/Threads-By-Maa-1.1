@@ -661,7 +661,7 @@ Can you tell me more about customization options and delivery time?`;
 
             <div className="mt-12 p-8 bg-gradient-to-r from-purple-100 to-pink-100 rounded-2xl border-2 border-purple-300 text-center">
               <p className="text-purple-950 font-semibold mb-2">👗 What's Coming:</p>
-              <p className="text-purple-900">Crochet Kids Wear • Fashion Summer wear • Warm Winter Wear • Pinterest inspired adult wear</p>
+              <p className="text-purple-900">Crochet Kids Wear • Fashion Summer Wear • Warm Winter Wear • Pinterest Inspired Adult Wear</p>
             </div>
           </div>
         </section>
