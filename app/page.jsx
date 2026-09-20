@@ -618,6 +618,13 @@ Can you tell me more about customization options and delivery time?`;
             <div className="grid md:grid-cols-4 gap-4 mb-12">
               <div className="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300">
                 <img
+                  src="/images/products/Coming Soon (Kids Wear & Fashion Collection)/Kidswear.png"
+                  alt="Kids Fashion Collection"
+                  className="w-full h-auto"
+                />
+              </div>
+              <div className="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300">
+                <img
                   src="/images/products/Coming Soon (Kids Wear & Fashion Collection)/Kidswear 2.png"
                   alt="Kids Fashion Collection"
                   className="w-full h-auto"
@@ -625,22 +632,15 @@ Can you tell me more about customization options and delivery time?`;
               </div>
               <div className="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300">
                 <img
-                  src="/images/products/Coming Soon (Kids Wear & Fashion Collection)/Screenshot 2026-09-20 at 8.18.10 PM.png"
-                  alt="Kids Fashion Collection"
+                  src="/images/products/Coming Soon (Kids Wear & Fashion Collection)/Fashion wear.png"
+                  alt="Fashion Collection"
                   className="w-full h-auto"
                 />
               </div>
               <div className="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300">
                 <img
-                  src="/images/products/Coming Soon (Kids Wear & Fashion Collection)/Screenshot 2026-09-20 at 8.19.50 PM.png"
-                  alt="Kids Fashion Collection"
-                  className="w-full h-auto"
-                />
-              </div>
-              <div className="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300">
-                <img
-                  src="/images/products/Coming Soon (Kids Wear & Fashion Collection)/Screenshot 2026-09-20 at 8.25.13 PM.png"
-                  alt="Kids Fashion Collection"
+                  src="/images/products/Coming Soon (Kids Wear & Fashion Collection)/Fashion wear2.png"
+                  alt="Fashion Collection"
                   className="w-full h-auto"
                 />
               </div>
