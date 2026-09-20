@@ -642,8 +642,8 @@ Can you tell me more about customization options and delivery time?`;
               </div>
               <div className="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300">
                 <img
-                  src="/images/products/Coming Soon (Kids Wear & Fashion Collection)/Fashion Wear2.png"
-                  alt="Fashion Collection"
+                  src="/images/products/Coming Soon (Kids Wear & Fashion Collection)/Kids Wear2.png"
+                  alt="Kids Wear Collection"
                   className="w-full h-auto"
                 />
               </div>
