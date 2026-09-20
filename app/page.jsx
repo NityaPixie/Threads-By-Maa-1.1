@@ -88,20 +88,20 @@ Can you tell me more about customization options and delivery time?`;
 
       <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-50">
         {/* Rotating Quote Banner */}
-        <div className="bg-gradient-to-r from-rose-200 via-amber-200 to-orange-200 text-amber-900 py-3 px-4">
+        <div className="bg-gradient-to-r from-rose-200 via-amber-200 to-orange-200 text-amber-900 py-1 px-4">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
             <button
               onClick={() => setCurrentQuoteIndex((prev) => (prev - 1 + quotes.length) % quotes.length)}
               className="p-1 hover:bg-white/30 rounded"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-4 h-4" />
             </button>
-            <p className="text-center flex-1 font-semibold text-lg">{quotes[currentQuoteIndex]}</p>
+            <p className="text-center flex-1 font-semibold text-xs">{quotes[currentQuoteIndex]}</p>
             <button
               onClick={() => setCurrentQuoteIndex((prev) => (prev + 1) % quotes.length)}
               className="p-1 hover:bg-white/30 rounded"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-4 h-4" />
             </button>
           </div>
         </div>
