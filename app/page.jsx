@@ -619,32 +619,32 @@ Can you tell me more about customization options and delivery time?`;
             </div>
 
             <div className="grid md:grid-cols-4 gap-4 mb-12">
-              <div className="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300">
+              <div className="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300 h-80">
                 <img
                   src="/images/products/Coming Soon (Kids Wear & Fashion Collection)/Kidswear.png"
                   alt="Kids Fashion Collection"
-                  className="w-full h-auto"
+                  className="w-full h-full object-cover"
                 />
               </div>
-              <div className="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300">
+              <div className="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300 h-80">
                 <img
                   src="/images/products/Coming Soon (Kids Wear & Fashion Collection)/Kidswear 2.png"
                   alt="Kids Fashion Collection"
-                  className="w-full h-auto"
+                  className="w-full h-full object-cover"
                 />
               </div>
-              <div className="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300">
+              <div className="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300 h-80">
                 <img
                   src="/images/products/Coming Soon (Kids Wear & Fashion Collection)/Fashion Wear.png"
                   alt="Fashion Collection"
-                  className="w-full h-auto"
+                  className="w-full h-full object-cover"
                 />
               </div>
-              <div className="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300">
+              <div className="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300 h-80">
                 <img
                   src="/images/products/Coming Soon (Kids Wear & Fashion Collection)/Fashion Wear2.png"
                   alt="Fashion Collection"
-                  className="w-full h-auto"
+                  className="w-full h-full object-cover"
                 />
               </div>
             </div>
