@@ -86,7 +86,7 @@ Can you tell me more about customization options and delivery time?`;
         <meta name="description" content="Handmade crochet flowers, bouquets, and premium gifts by Threads By Maa." />
       </Head>
 
-      <div className="min-h-screen bg-gradient-to-br from-yellow-50 via-amber-50 to-orange-50">
+      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-50">
         {/* Rotating Quote Banner */}
         <div className="bg-gradient-to-r from-rose-200 via-amber-200 to-orange-200 text-amber-900 py-3 px-4">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
