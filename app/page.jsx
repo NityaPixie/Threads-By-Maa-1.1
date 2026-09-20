@@ -42,6 +42,7 @@ const ThreadsByMaa = () => {
     { name: 'Flowers & Bouquets', icon: '🌸', color: 'from-pink-100 to-rose-100', slug: 'flowers-bouquets' },
     { name: 'Accessories', icon: '✨', color: 'from-purple-100 to-pink-100', slug: 'accessories' },
     { name: 'Home Decor', icon: '🏠', color: 'from-amber-100 to-yellow-100', slug: 'home-decor' },
+    { name: 'Fashion & Kids Wear', icon: '👗', color: 'from-violet-100 to-purple-100', slug: 'fashion-kids', comingSoon: true },
   ];
 
   const trackEvent = (eventType, productName) => {
@@ -211,14 +212,6 @@ Can you tell me more about customization options and delivery time?`;
           </div>
         </section>
 
-        {/* Instagram QR Top */}
-        <section className="py-8 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-pink-50 to-rose-50 text-center">
-          <div className="max-w-7xl mx-auto">
-            <p className="text-sm text-amber-900 mb-4">Follow us on Instagram for daily updates & behind-the-scenes! 📸</p>
-            <img src="/images/QR Instagram.jpeg" alt="Instagram QR Code" className="h-32 mx-auto" />
-          </div>
-        </section>
-
         {/* Offers & Discounts Section */}
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-red-50 to-orange-50 border-y-2 border-orange-200">
           <div className="max-w-7xl mx-auto">
@@ -254,14 +247,23 @@ Can you tell me more about customization options and delivery time?`;
             <h3 className="text-3xl font-bold text-amber-950 text-center mb-12">Shop by Category</h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {categoryLinks.map((cat, idx) => (
-                <Link
-                  key={idx}
-                  href={`/category/${cat.slug}`}
-                  className={`bg-gradient-to-br ${cat.color} p-8 rounded-2xl text-center hover:shadow-lg transition-all duration-200 cursor-pointer hover:scale-105`}
-                >
-                  <p className="text-5xl mb-4">{cat.icon}</p>
-                  <h4 className="font-semibold text-amber-950 text-lg">{cat.name}</h4>
-                </Link>
+                <div key={idx}>
+                  {cat.comingSoon ? (
+                    <div className={`bg-gradient-to-br ${cat.color} p-8 rounded-2xl text-center hover:shadow-lg transition-all duration-200 cursor-pointer hover:scale-105 relative`}>
+                      <p className="text-5xl mb-4">{cat.icon}</p>
+                      <h4 className="font-semibold text-amber-950 text-lg">{cat.name}</h4>
+                      <div className="mt-4 inline-block bg-red-500 text-white px-4 py-1 rounded-full text-sm font-bold">Coming Soon</div>
+                    </div>
+                  ) : (
+                    <Link
+                      href={`/category/${cat.slug}`}
+                      className={`bg-gradient-to-br ${cat.color} p-8 rounded-2xl text-center hover:shadow-lg transition-all duration-200 cursor-pointer hover:scale-105 block`}
+                    >
+                      <p className="text-5xl mb-4">{cat.icon}</p>
+                      <h4 className="font-semibold text-amber-950 text-lg">{cat.name}</h4>
+                    </Link>
+                  )}
+                </div>
               ))}
             </div>
           </div>
@@ -282,28 +284,24 @@ Can you tell me more about customization options and delivery time?`;
               {/* Story Text */}
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-2xl font-bold text-amber-950 mb-3">Founded by Pushpa Singh</h3>
-                  <p className="text-lg text-amber-900 leading-relaxed">
-                    Threads By Maa is born from passion, creativity, and love for handmade crochet. Every piece is crafted with meticulous care and dedication to bring joy to your life.
+                  <p className="text-lg text-amber-900 leading-relaxed mb-6">
+                    Threads By Maa was born from a mother's love for crochet and her dream to share handmade magic with the world.
+                  </p>
+                  <p className="text-lg text-amber-900 leading-relaxed mb-6">
+                    Each piece is created with passion, premium materials, and the kind of care that only comes from making something with your own hands.
                   </p>
                 </div>
 
-                <div className="bg-white/60 rounded-xl p-6 border-2 border-amber-200">
-                  <p className="text-amber-900 font-semibold mb-2">Managed by: <span className="text-amber-950 font-bold">Nitya Singh</span></p>
-                  <p className="text-sm text-amber-800 mb-4">Follow Nitya's creative journey and daily updates:</p>
-                  <a
-                    href="https://www.instagram.com/nitya.singh_17?stkn=MWxqem1vaXBkdWFicg%3D%3D&utm_source=qr"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block bg-gradient-to-r from-pink-500 to-rose-500 text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg transition-all"
-                  >
-                    📸 @nitya.singh_17
-                  </a>
-                </div>
+                <button
+                  onClick={handleQuickInquiry}
+                  className="bg-gradient-to-r from-amber-600 to-orange-600 text-white px-8 py-3 rounded-lg font-bold hover:shadow-lg transition-all w-full"
+                >
+                  Start Your Custom Order
+                </button>
 
-                <p className="text-amber-900 italic">
-                  Every crochet creation is a labor of love, designed to bring warmth, beauty, and happiness into your home.
-                </p>
+                <div className="bg-white/60 rounded-xl p-6 border-2 border-amber-200">
+                  <p className="text-amber-900 font-semibold">Managed by: <span className="text-amber-950 font-bold">Nitya Singh (Daughter)</span></p>
+                </div>
               </div>
             </div>
           </div>
@@ -561,25 +559,26 @@ Can you tell me more about customization options and delivery time?`;
           </div>
         )}
 
-        {/* About Section */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-amber-50 to-rose-50">
+        {/* Follow on Instagram Section */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-pink-50 to-rose-50">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
-                <h3 className="text-4xl font-bold text-amber-950">Our Story</h3>
-                <div className="space-y-4 text-amber-900 leading-relaxed">
-                  <p>Threads By Maa was born from a mother's love for crochet and a daughter's dream to share handmade magic with the world.</p>
-                  <p>Each piece is created with passion, premium materials, and the kind of care that only comes from making something with your own hands.</p>
-                </div>
-                <button
-                  onClick={handleQuickInquiry}
-                  className="mt-6 bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200"
+                <h3 className="text-4xl font-bold text-rose-950">Follow Us on Instagram</h3>
+                <p className="text-lg text-rose-900 leading-relaxed">
+                  Stay connected with us for daily updates, behind-the-scenes content, and exclusive sneak peeks of new collections!
+                </p>
+                <a
+                  href="https://www.instagram.com/threads.by.maa?stkn=MWU2dDdmbjF0dWlyOQ=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 text-white px-8 py-3 rounded-lg font-bold hover:shadow-lg transition-all"
                 >
-                  Start Your Custom Order
-                </button>
+                  Follow @threads.by.maa
+                </a>
               </div>
-              <div className="h-96 bg-gradient-to-br from-rose-100 to-amber-100 rounded-3xl flex items-center justify-center shadow-xl text-8xl">
-                👩‍💕👧
+              <div className="text-center">
+                <img src="/images/QR Instagram.jpeg" alt="Follow us on Instagram" className="w-full max-w-sm mx-auto rounded-2xl shadow-xl" />
               </div>
             </div>
           </div>
