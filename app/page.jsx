@@ -42,7 +42,6 @@ const ThreadsByMaa = () => {
     { name: 'Flowers & Bouquets', icon: '🌸', color: 'from-pink-100 to-rose-100', slug: 'flowers-bouquets' },
     { name: 'Accessories', icon: '✨', color: 'from-purple-100 to-pink-100', slug: 'accessories' },
     { name: 'Home Decor', icon: '🏠', color: 'from-amber-100 to-yellow-100', slug: 'home-decor' },
-    { name: 'Raksha Bandhan 2026', icon: '🎊', color: 'from-orange-100 to-red-100', slug: 'raksha-bandhan-2026' },
   ];
 
   const trackEvent = (eventType, productName) => {
