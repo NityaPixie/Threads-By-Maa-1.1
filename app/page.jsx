@@ -687,7 +687,7 @@ Can you tell me more about customization options and delivery time?`;
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               <div>
                 <h4 className="font-bold text-lg mb-4">Threads By Maa</h4>
-                <p className="text-amber-200 text-sm">Handmade crochet products created with love in New Delhi.</p>
+                <p className="text-amber-200 text-sm">Handmade crochet products created with love in Prayagraj, Uttar Pradesh.</p>
               </div>
               <div>
                 <h5 className="font-bold mb-4">Quick Links</h5>
