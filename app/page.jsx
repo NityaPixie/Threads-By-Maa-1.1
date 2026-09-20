@@ -310,7 +310,15 @@ Can you tell me more about customization options and delivery time?`;
                 </button>
 
                 <div className="bg-white/60 rounded-xl p-6 border-2 border-amber-200">
-                  <p className="text-amber-900 font-semibold">Managed by: <span className="text-amber-950 font-bold">Nitya Singh (Daughter)</span></p>
+                  <p className="text-sm text-amber-900 font-semibold mb-3">Managed by: <span className="text-amber-950 font-bold">Nitya Singh (Daughter)</span></p>
+                  <a
+                    href="https://www.instagram.com/nitya.singh_17?stkn=MWxqem1vaXBkdWFicg%3D%3D&utm_source=qr"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block bg-gradient-to-r from-pink-500 to-rose-500 text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg transition-all text-sm"
+                  >
+                    📸 @nitya.singh_17
+                  </a>
                 </div>
               </div>
             </div>
