@@ -418,25 +418,14 @@ Can you tell me more about customization options and delivery time?`;
               </div>
 
               <div className="grid md:grid-cols-2 gap-8 p-8">
-                {/* Images */}
-                <div className="space-y-4">
+                {/* Image */}
+                <div>
                   <div className="bg-gradient-to-br from-amber-100 to-rose-100 h-96 rounded-xl overflow-hidden flex items-center justify-center">
                     <img
                       src={selectedProduct.image}
                       alt={selectedProduct.name}
                       className="w-full h-full object-cover"
                     />
-                  </div>
-                  <div className="grid grid-cols-3 gap-2">
-                    {selectedProduct.images.map((img, idx) => (
-                      <div key={idx} className="bg-gradient-to-br from-amber-100 to-rose-100 h-20 rounded-lg overflow-hidden cursor-pointer hover:shadow-md">
-                        <img
-                          src={img}
-                          alt={`${selectedProduct.name} - view ${idx + 1}`}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    ))}
                   </div>
                 </div>
 
