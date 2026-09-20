@@ -616,13 +616,13 @@ Can you tell me more about customization options and delivery time?`;
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-amber-400 via-rose-300 to-amber-300 text-amber-900">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-yellow-100 via-pink-100 to-yellow-100 text-amber-900">
           <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h3 className="text-4xl font-bold">Ready to Order?</h3>
-            <p className="text-xl opacity-90">Chat with us on WhatsApp for personalized recommendations!</p>
+            <h3 className="text-4xl font-bold text-amber-950">Ready to Order?</h3>
+            <p className="text-xl text-amber-900">Chat with us on WhatsApp for personalized recommendations!</p>
             <button
               onClick={handleQuickInquiry}
-              className="bg-white text-rose-700 hover:bg-stone-50 px-10 py-4 rounded-full font-bold text-lg transition-all duration-200 shadow-lg hover:shadow-xl inline-flex items-center gap-2"
+              className="bg-white text-amber-700 hover:bg-stone-50 px-10 py-4 rounded-full font-bold text-lg transition-all duration-200 shadow-lg hover:shadow-xl inline-flex items-center gap-2"
             >
               <MessageCircle className="w-6 h-6" />
               Chat Now on WhatsApp
